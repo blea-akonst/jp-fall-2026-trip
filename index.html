@@ -197,6 +197,9 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.6vw,42px);let
 }
 .card:hover{box-shadow:0 2px 8px rgba(0,0,0,.04)}
 .card.tall{grid-row:span 2}
+.card.wide{grid-column:1/-1}
+.checks-cols{columns:2;column-gap:44px}
+.checks-cols .check{break-inside:avoid}
 .card h3{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.01em;margin:14px 0 18px}
 .card-icon{
   width:44px;height:44px;border-radius:8px;
@@ -205,6 +208,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.6vw,42px);let
 .card-icon.red{background:var(--red-bg)}
 .card-icon.blue{background:var(--blue-bg)}
 .card-icon.green{background:var(--green-bg)}
+.card-icon.yellow{background:var(--yellow-bg)}
 .card-icon svg{width:24px;height:24px}
 .sketch-thin{stroke:var(--ink);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .check{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
@@ -237,6 +241,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
   .stats{grid-template-columns:repeat(2,1fr)}
   .bento{grid-template-columns:1fr}
   .card.tall{grid-row:auto}
+  .checks-cols{columns:1}
   .route-inner{grid-template-columns:1fr;text-align:left;gap:14px}
   .route-city:last-child{text-align:left}
   .route-link{flex-direction:row;justify-content:flex-start}
@@ -304,7 +309,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
   <div class="stats reveal">
     <div class="stat"><div class="num">9</div><div class="cap">дней на маршруте</div></div>
     <div class="stat"><div class="num">6</div><div class="cap">городов, считая Нару и Киото</div></div>
-    <div class="stat"><div class="num">3</div><div class="cap">брони, которые сгорят, если тянуть</div></div>
+    <div class="stat"><div class="num">4</div><div class="cap">брони, которые сгорят, если тянуть</div></div>
     <div class="stat"><div class="num">$900+</div><div class="cap">бюджет на человека без перелёта и жилья</div></div>
   </div>
 
@@ -325,7 +330,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
           <div class="day-text">
             <h3>Нарита, Синдзюку, первый неон</h3>
             <p>Narita Express довозит до Синдзюку примерно за 85 минут, в городе будем к половине третьего. На вечер ничего серьёзного: неон Кабукитё и ужин в <a href="https://en.wikipedia.org/wiki/Omoide_Yokoch%C5%8D">Omoide Yokocho</a>, переулке на полсотни идзакай у путей</p>
-            <p class="aside">Если после перелёта останутся силы, в десяти минутах пешком бесплатная смотровая Токийского правительственного здания на 45 этаже, работает до 22:00. Ночной Синдзюку сверху в первый же вечер, без брони и билетов</p>
+            <p class="aside">Если после перелёта останутся силы, заглянем в <a href="https://en.wikipedia.org/wiki/Golden_Gai">Golden Gai</a> по соседству: квартал двухсот крошечных баров на шесть мест каждый. Внутрь идти не обязательно, он и снаружи работает как музей под открытым небом</p>
           </div>
           <div class="carousel">
             <div class="car-track">
@@ -338,8 +343,8 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
                 <figcaption>Omoide Yokocho: ужин в переулке</figcaption>
               </figure>
               <figure class="slide">
-                <div class="photo-frame"><img src="assets/tocho.webp" alt="Башни Токийского правительственного здания" loading="lazy"></div>
-                <figcaption>Токийское правительственное здание: бесплатная смотровая на 45 этаже</figcaption>
+                <div class="photo-frame"><img src="assets/golden-gai.webp" alt="Улочка Golden Gai с вывесками крошечных баров" loading="lazy"></div>
+                <figcaption>Golden Gai: двести баров на два переулка</figcaption>
               </figure>
             </div>
             <div class="car-ui">
@@ -358,12 +363,16 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
         </div>
         <div class="day-body">
           <div class="day-text">
-            <h3>Восток города и залив</h3>
-            <p>Утром Асакуса: Сэнсо-дзи и уличная еда на Накамисэ-дори, пока туристические автобусы ещё не подъехали. Днём Акихабара с аркадами, ретро-играми и этажами электроники. Вечером слот в <a href="https://www.teamlab.art/e/planets/">teamLab Planets</a> в Тоёсу. Билеты берём заранее, на месте их не бывает</p>
-            <p class="aside">Возможная замена вечера: концерт Benson Boone в Toyota Arena в 19:00. Та же зона залива, от teamLab минут пятнадцать. Билеты только через официальный e+ global. Если с концертом не сложится, спокойно гуляем по Гиндзе</p>
+            <h3>Котики, Асакуса и залив</h3>
+            <p>В 9:00 выезжаем из Синдзюку: двенадцать минут по линии Odakyu и десять пешком, к 10:00 мы в <a href="https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji">храме Готокудзи</a> с тысячами манэки-нэко, утром там почти пусто. Обратно можно уехать ретро-трамваем линии Сэтагая от Miyanosaka. К полудню Асакуса: Сэнсо-дзи, обед и уличная еда на Накамисэ-дори. В 15:30 слот в <a href="https://www.teamlab.art/e/planets/">teamLab Planets</a> в Тоёсу, билеты берём заранее, на месте их не бывает</p>
+            <p class="aside">Развилка с концертом: Benson Boone в Toyota Arena, та же зона залива, от teamLab минут пятнадцать. Билеты только через официальные каналы вроде e+ global, перекупские в Японии рискуют не пройти по именному билету. Если концерта нет, ужин в Тоёсу или на Гиндзе. Акихабару вычеркнули общим решением: гаджеты и Don Quijote есть в Синдзюку, аркады в Кабукитё</p>
           </div>
           <div class="carousel">
             <div class="car-track">
+              <figure class="slide">
+                <div class="photo-frame"><img src="assets/gotokuji.webp" alt="Ряды манэки-нэко в храме Готокудзи" loading="lazy"></div>
+                <figcaption>Готокудзи: тысячи манэки-нэко, утром без людей</figcaption>
+              </figure>
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/sensoji.webp" alt="Главный зал Сэнсо-дзи в Асакусе" loading="lazy"></div>
                 <figcaption>Сэнсо-дзи: старейший храм Токио</figcaption>
@@ -371,10 +380,6 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/nakamise-dori.webp" alt="Торговая улица Накамисэ-дори с лавками" loading="lazy"></div>
                 <figcaption>Накамисэ-дори: уличная еда по дороге к храму</figcaption>
-              </figure>
-              <figure class="slide">
-                <div class="photo-frame"><img src="assets/akihabara.webp" alt="Неоновые фасады Акихабары вечером" loading="lazy"></div>
-                <figcaption>Акихабара: аркады и электроника</figcaption>
               </figure>
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/teamlab-planets.webp" alt="Зеркальная инсталляция teamLab Planets" loading="lazy"></div>
@@ -428,20 +433,20 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
       <article class="day reveal">
         <div class="day-head">
           <span class="date">31.10, суббота</span>
-          <span class="tag tag-red">бронь: Shibuya Sky</span>
+          <span class="tag tag-red">брони: WB тур и Shibuya Sky</span>
           <span class="tag tag-yellow">хэллоуин</span>
         </div>
         <div class="day-body">
           <div class="day-text">
-            <h3>Запад города и Хэллоуин</h3>
-            <p>Утром <a href="https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji">храм Готокудзи</a> с тысячами манэки-нэко, туда идёт ретро-трамвай линии Сэтагая. Днём Сибуя: перекрёсток, Хатико. На закат поднимаемся на <a href="https://www.shibuya-scramble-square.com/sky/">Shibuya Sky</a>. Закатные слоты разбирают за недели, это вторая жёсткая бронь поездки</p>
+            <h3>Гарри Поттер, Сибуя и Хэллоуин</h3>
+            <p>С 9:00 до 13:00 <a href="https://www.wbstudiotour.jp/">Warner Bros. Studio Tour</a>: студия «Гарри Поттера» у станции Toshimaen, прямая линия Оэдо от Синдзюку, минут двадцать. Сам тур идёт три-четыре часа, билет 6 500–7 000 ¥ на официальном сайте, и брать нужно уже сейчас: хэллоуинскую субботу разбирают первой. Днём Сибуя: перекрёсток, Хатико. На закат поднимаемся на <a href="https://www.shibuya-scramble-square.com/sky/">Shibuya Sky</a>, слоты разбирают за недели</p>
             <p class="aside">Вечером Хэллоуин: костюмированные толпы в Сибуе и Синдзюку. Карнавал бесплатный, но к давке лучше быть готовыми</p>
           </div>
           <div class="carousel">
             <div class="car-track">
               <figure class="slide">
-                <div class="photo-frame"><img src="assets/gotokuji.webp" alt="Ряды манэки-нэко в храме Готокудзи" loading="lazy"></div>
-                <figcaption>Готокудзи: тысячи манэки-нэко</figcaption>
+                <div class="photo-frame"><img src="assets/wb-studio.webp" alt="Вход в Warner Bros. Studio Tour Tokyo" loading="lazy"></div>
+                <figcaption>Warner Bros. Studio Tour: три-четыре часа Хогвартса</figcaption>
               </figure>
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/shibuya-crossing.webp" alt="Перекрёсток Сибуя сверху" loading="lazy"></div>
@@ -469,7 +474,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
         <div class="day-body">
           <div class="day-text">
             <h3>Камакура</h3>
-            <p>Час от Синдзюку по линии Odakyu или JR. Сначала <a href="https://en.wikipedia.org/wiki/K%C5%8Dtoku-in">Большой Будда</a>, потом поезд Эноден вдоль океана и переезд у станции Камакуракоко-маэ, тот самый кадр из Slam Dunk. Если укладываемся по времени, на закат заходим на остров Эносима. Вечером назад: пора собирать чемоданы</p>
+            <p>Выезжаем около 9:30, час от Синдзюку по линии Odakyu или JR. Сначала <a href="https://en.wikipedia.org/wiki/K%C5%8Dtoku-in">Большой Будда</a>, потом поезд Эноден вдоль океана и переезд у станции Камакуракоко-маэ, тот самый кадр из Slam Dunk. Дальше остров Эносима на закат: с утренним стартом он теперь успевается спокойно. Вечером назад, собирать чемоданы</p>
           </div>
           <div class="carousel">
             <div class="car-track">
@@ -483,7 +488,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
               </figure>
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/enoshima.webp" alt="Закат на острове Эносима" loading="lazy"></div>
-                <figcaption>Эносима: если успеваем на закат</figcaption>
+                <figcaption>Эносима: закат над заливом</figcaption>
               </figure>
             </div>
             <div class="car-ui">
@@ -498,15 +503,20 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
       <article class="day reveal">
         <div class="day-head">
           <span class="date">2.11, понедельник</span>
+          <span class="tag tag-red">бронь: Гибли</span>
           <span class="tag tag-green">переезд</span>
         </div>
         <div class="day-body">
           <div class="day-text">
-            <h3>Лестница из «Твоё имя» и синкансэн</h3>
-            <p>С утра десять минут до Ёцуи: <a href="https://en.wikipedia.org/wiki/Suga_Shrine_(Tokyo)">лестница святилища Суга</a>, на кадр хватит двадцати минут. Дальше синкансэн Nozomi до Син-Осаки: два с половиной часа, около 14 500 ¥. В Намбе будем к часу дня</p>
+            <h3>Гибли, лестница и синкансэн</h3>
+            <p>В 10:00 <a href="https://www.ghibli-museum.jp/en/">музей Гибли</a> в Митаке: вход строго по слоту, опоздание больше тридцати минут значит не пустят, повторного входа нет. Оттуда по той же линии Тюо в Ёцую, к 13:00 <a href="https://en.wikipedia.org/wiki/Suga_Shrine_(Tokyo)">лестница святилища Суга</a> из «Твоё имя», на кадр хватит пятнадцати минут. В 14:30 синкансэн Nozomi до Син-Осаки, два с половиной часа и около 14 500 ¥, в Намбе к 17:30. Вечером <a href="https://en.wikipedia.org/wiki/D%C5%8Dtonbori">Дотонбори</a>: Глико-мэн, такояки и окономияки</p>
           </div>
           <div class="carousel">
             <div class="car-track">
+              <figure class="slide">
+                <div class="photo-frame"><img src="assets/ghibli-museum.webp" alt="Здание музея Гибли в Митаке" loading="lazy"></div>
+                <figcaption>Музей Гибли: вход строго по слоту</figcaption>
+              </figure>
               <figure class="slide">
                 <div class="photo-frame"><img src="assets/suga-stairs.webp" alt="Лестница святилища Суга в Ёцуе, финальный кадр из «Твоё имя»" loading="lazy"></div>
                 <figcaption>Лестница Суга: финальная сцена «Твоё имя»</figcaption>
@@ -515,19 +525,26 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
                 <div class="photo-frame"><img src="assets/shinkansen.webp" alt="Синкансэн N700S" loading="lazy"></div>
                 <figcaption>Nozomi до Син-Осаки: ~2,5 часа</figcaption>
               </figure>
+              <figure class="slide">
+                <div class="photo-frame"><img src="assets/dotonbori.webp" alt="Неон Дотонбори у моста Эбису" loading="lazy"></div>
+                <figcaption>Дотонбори: первый вечер в Осаке</figcaption>
+              </figure>
             </div>
             <div class="car-ui">
               <button class="car-btn prev" type="button" aria-label="Предыдущий кадр"><svg viewBox="0 0 24 24"><path d="M14.5 6 L9 12 L14.5 18"/></svg></button>
-              <span class="car-count">1 / 2</span>
+              <span class="car-count">1 / 4</span>
               <button class="car-btn next" type="button" aria-label="Следующий кадр"><svg viewBox="0 0 24 24"><path d="M9.5 6 L15 12 L9.5 18"/></svg></button>
             </div>
           </div>
+        </div>
+        <div class="note" style="margin-top:24px">
+          <b>Гибли – главный квест поездки:</b> продажи стартуют 10 октября в 10:00 по Японии, это 4:00 утра по Петербургу, на международной странице Lawson Ticket через ghibli-museum.jp, разбирают за минуты. Билет 1 000 ¥, оплата только зарубежной картой, имя покупателя как в паспорте, и покупатель обязан присутствовать на входе. Перепродажные билеты запрещены и могут не сработать. План Б: официальный тур JTB Sunrise Tours с гарантированным входом, дороже и займёт автобусный день
         </div>
       </article>
     </div>
 
     <div class="note reveal">
-      <b>Резерв:</b> план плотный, запасного дня нет. Если что-то горит, жертвуем в таком порядке: сначала Готокудзи, потом хэллоуинский вечер, в крайнем случае Камакуру
+      <b>Резерв:</b> план плотный, запасного дня нет. Если что-то горит, жертвуем в таком порядке: сначала Эносима, потом хэллоуинский вечер, в крайнем случае Камакура
     </div>
   </section>
 
@@ -535,40 +552,10 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
     <div class="section-head reveal">
       <span class="kicker">2.11 – 5.11, база в Намбе</span>
       <h2>Кансай</h2>
-      <p>Три ночи в Осаке и две больших вылазки: Нара с оленями в праздничный вторник и Киото одним длинным днём в среду. Вечера оставляем городу: Дотонбори и Синсэкай никуда не денутся</p>
+      <p>Три ночи в Намбе. Приезжаем вечером 2.11 сразу на Дотонбори, дальше Нара с замком Осаки в праздничный вторник и Киото одним длинным днём в среду. Вечера оставляем городу</p>
     </div>
 
     <div class="days">
-      <article class="day reveal">
-        <div class="day-head">
-          <span class="date">2.11, понедельник</span>
-          <span class="tag tag-green">заселение</span>
-        </div>
-        <div class="day-body">
-          <div class="day-text">
-            <h3>Осака: замок и Дотонбори</h3>
-            <p>После заселения парк <a href="https://en.wikipedia.org/wiki/Osaka_Castle">замка Осаки</a>. Стены и рвы снаружи интереснее музея внутри, так что внутрь можно не ходить. Вечером <a href="https://en.wikipedia.org/wiki/D%C5%8Dtonbori">Дотонбори</a>: Глико-мэн, такояки и окономияки на ужин</p>
-          </div>
-          <div class="carousel">
-            <div class="car-track">
-              <figure class="slide">
-                <div class="photo-frame"><img src="assets/osaka-castle.webp" alt="Главная башня замка Осаки над каменными стенами" loading="lazy"></div>
-                <figcaption>Замок Осаки: парк и стены</figcaption>
-              </figure>
-              <figure class="slide">
-                <div class="photo-frame"><img src="assets/dotonbori.webp" alt="Неон Дотонбори у моста Эбису" loading="lazy"></div>
-                <figcaption>Дотонбори: Глико-мэн и ужин</figcaption>
-              </figure>
-            </div>
-            <div class="car-ui">
-              <button class="car-btn prev" type="button" aria-label="Предыдущий кадр"><svg viewBox="0 0 24 24"><path d="M14.5 6 L9 12 L14.5 18"/></svg></button>
-              <span class="car-count">1 / 2</span>
-              <button class="car-btn next" type="button" aria-label="Следующий кадр"><svg viewBox="0 0 24 24"><path d="M9.5 6 L15 12 L9.5 18"/></svg></button>
-            </div>
-          </div>
-        </div>
-      </article>
-
       <article class="day reveal">
         <div class="day-head">
           <span class="date">3.11, вторник</span>
@@ -576,8 +563,8 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
         </div>
         <div class="day-body">
           <div class="day-text">
-            <h3>Нара и вечерний Синсэкай</h3>
-            <p>Утром <a href="https://en.wikipedia.org/wiki/Nara_Park">парк Нары</a>: покупаем сэмбэй, олени кланяются, дальше по обстановке. Рядом <a href="https://en.wikipedia.org/wiki/T%C5%8Ddai-ji">Тодай-дзи</a> с Большим Буддой. Вечером возвращаемся в Осаку и идём в <a href="https://en.wikipedia.org/wiki/Shinsekai">Синсэкай</a> за ретро-неоном и кусикацу</p>
+            <h3>Нара, замок и Синсэкай</h3>
+            <p>Утром <a href="https://en.wikipedia.org/wiki/Nara_Park">парк Нары</a>: покупаем сэмбэй, олени кланяются, дальше по обстановке. Рядом <a href="https://en.wikipedia.org/wiki/T%C5%8Ddai-ji">Тодай-дзи</a> с Большим Буддой. К 15:00 возвращаемся в Осаку и до заката гуляем в парке <a href="https://en.wikipedia.org/wiki/Osaka_Castle">замка Осаки</a>: стены и рвы снаружи интереснее музея внутри. Вечером <a href="https://en.wikipedia.org/wiki/Shinsekai">Синсэкай</a>, ретро-неон и кусикацу</p>
             <p class="aside">Если к этому моменту захочется отмокнуть, в Синсэкае есть Spa World, банный комплекс на весь вечер</p>
           </div>
           <div class="carousel">
@@ -591,13 +578,17 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
                 <figcaption>Тодай-дзи: Большой Будда Нары</figcaption>
               </figure>
               <figure class="slide">
+                <div class="photo-frame"><img src="assets/osaka-castle.webp" alt="Главная башня замка Осаки над каменными стенами" loading="lazy"></div>
+                <figcaption>Замок Осаки: парк и стены до заката</figcaption>
+              </figure>
+              <figure class="slide">
                 <div class="photo-frame"><img src="assets/shinsekai.webp" alt="Башня Цутэнкаку и неон Синсэкая ночью" loading="lazy"></div>
                 <figcaption>Синсэкай: ретро-неон и кусикацу</figcaption>
               </figure>
             </div>
             <div class="car-ui">
               <button class="car-btn prev" type="button" aria-label="Предыдущий кадр"><svg viewBox="0 0 24 24"><path d="M14.5 6 L9 12 L14.5 18"/></svg></button>
-              <span class="car-count">1 / 3</span>
+              <span class="car-count">1 / 4</span>
               <button class="car-btn next" type="button" aria-label="Следующий кадр"><svg viewBox="0 0 24 24"><path d="M9.5 6 L15 12 L9.5 18"/></svg></button>
             </div>
           </div>
@@ -698,7 +689,7 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
     <div class="section-head reveal">
       <span class="kicker">до вылета</span>
       <h2>Чек-листы</h2>
-      <p>Конец октября в Японии – сезон момидзи, поэтому жильё и смотровые разбирают заранее. Три брони критичны, остальное решается на месте</p>
+      <p>Конец октября в Японии – сезон момидзи, поэтому жильё и слоты разбирают заранее. Броней стало больше: помимо отелей теперь Гибли, Гарри Поттер, Shibuya Sky и teamLab. Остальное решается на месте</p>
     </div>
 
     <div class="bento">
@@ -710,12 +701,14 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
           </svg>
         </div>
         <h3>Бронировать сейчас</h3>
-        <label class="check"><input type="checkbox"><span>Отель в Синдзюку или Эдогавабаси, 5 ночей</span></label>
+        <label class="check"><input type="checkbox"><span>Отель в Синдзюку, 5 ночей</span></label>
         <label class="check"><input type="checkbox"><span>Отель в Намбе, 3 ночи</span></label>
+        <label class="check"><input type="checkbox"><span>Warner Bros Studio Tour: слот 9:00 на 31.10</span></label>
         <label class="check"><input type="checkbox"><span>Shibuya Sky: закатный слот на 31.10</span></label>
-        <label class="check"><input type="checkbox"><span>teamLab Planets: вечер 29.10</span></label>
+        <label class="check"><input type="checkbox"><span>teamLab Planets: слот 15:30 на 29.10</span></label>
         <label class="check"><input type="checkbox"><span>Концерт, если едем: билеты через e+ global</span></label>
-        <p class="small" style="margin-top:18px">Закатный слот Shibuya Sky разбирают за недели, teamLab на вечер тоже. Отели в сезон момидзи дорожают с каждой неделей ожидания</p>
+        <label class="check"><input type="checkbox"><span>Гибли: штурм продаж 10 октября в 4:00 утра, зарубежная карта наготове</span></label>
+        <p class="small" style="margin-top:18px">Хэллоуинскую субботу в Warner Bros разбирают первой, закатный слот Shibuya Sky за недели. Отели в сезон момидзи дорожают с каждой неделей ожидания</p>
       </div>
 
       <div class="card reveal">
@@ -728,9 +721,10 @@ footer{margin-top:120px;border-top:1px solid var(--line);background:var(--surfac
         <h3>Деньги и связь</h3>
         <div class="kv"><span class="k">Бюджет без билетов и жилья</span><span class="v">$900–1 200 / чел</span></div>
         <div class="kv"><span class="k">Наличные иены</span><span class="v">банкоматы 7-Eleven</span></div>
+        <div class="kv"><span class="k">Российские карты</span><span class="v">не работают</span></div>
         <div class="kv"><span class="k">Транспортная карта</span><span class="v">Suica в Apple Pay</span></div>
         <div class="kv"><span class="k">JR Pass</span><span class="v">не нужен</span></div>
-        <p class="small" style="margin-top:18px">Кэш пригодится в мелких идзакаях, на уличной еде и в части храмов</p>
+        <p class="small" style="margin-top:18px">Кэш пригодится в мелких идзакаях, на уличной еде и в части храмов. Платить и покупать билеты выручает карта другой юрисдикции</p>
       </div>
 
       <div class="card reveal">
